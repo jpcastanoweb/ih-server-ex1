@@ -18,6 +18,7 @@ app.use(cors())
 
 // ---- API
 app.use("/api/projects", require("./routes/projects"))
+app.use("/api/cars", require("./routes/cars"))
 
 // ---- Monitoring
 app.use("/", (req, res) => {
