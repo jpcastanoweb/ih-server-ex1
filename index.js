@@ -6,7 +6,10 @@ const app = express()
 
 /* MIDDLEWARES */
 
+// ---- environment variables
 require("dotenv").config()
+// ---- database connection
+connectdb()
 
 /* ROUTES */
 
