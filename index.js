@@ -1,6 +1,7 @@
 /* IMPORTACIONES */
 const express = require("express")
 const connectdb = require("./config/db")
+const cors = require("cors")
 
 const app = express()
 
@@ -10,6 +11,8 @@ const app = express()
 require("dotenv").config()
 // ---- database connection
 connectdb()
+// ---- Enable CORS
+app.use(cors())
 
 /* ROUTES */
 
