@@ -13,6 +13,14 @@ connectdb()
 
 /* ROUTES */
 
+// ---- API
+app.use("/api/projects", require("./routes/projects"))
+
+// ---- Monitoring
+app.use("/", (req, res) => {
+  res.send("Hola mundo")
+})
+
 /* SERVER */
 
 app.listen(process.env.PORT, () => {
