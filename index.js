@@ -13,6 +13,8 @@ require("dotenv").config()
 connectdb()
 // ---- Enable CORS
 app.use(cors())
+// ---- Activate body parser
+app.use(express.json({ extended: true }))
 
 /* ROUTES */
 
