@@ -19,3 +19,31 @@ exports.createProject = async (req, res) => {
     console.log("Error creating new Project:", error.message)
   }
 }
+
+exports.editProject = async (req, res) => {
+  const { projectId, name } = req.body
+
+  try {
+    const foundProject = await Project.findByIdAndUpdate(
+      projectId,
+      {
+        name,
+      },
+      { new: true }
+    )
+    res.json(foundProject)
+  } catch (error) {
+    console.log("Error updating project ", error.message)
+  }
+}
+
+exports.deleteProject = async (req, res) => {
+  const { projectId } = req.body
+
+  try {
+    const deletedProject = await Project.findOneAndRemove({ _id: projectId })
+    res.json(deletedProject)
+  } catch (error) {
+    console.log("Error deleting project", error.message)
+  }
+}
